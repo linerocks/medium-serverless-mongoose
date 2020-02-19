@@ -1,0 +1,6 @@
+{
+  "pathParameters": {
+    "id": "5e4cd837daa680511f6399b1"
+  },
+  "body": "{\"firstName\":\"Jorge\",\"lastName\":\"Wonton\",\"credentials\":[\"MD\"],\"medicalSchools\":[\"Harvard Medical School\"],\"gender\":\"male\",\"isActive\":true,\"licenses\":[\"SIP 2000/y70.george\"],\"birthDate\":\"1970-03-17\"}"
+}

@@ -1,0 +1,57 @@
+# NOTE: update this with your service name
+service: serverless-mongoose
+
+# Create an optimized package for our functions 
+package:
+  individually: true
+
+plugins:
+  - serverless-bundle # Package our functions with Webpack
+  - serverless-offline
+  - serverless-dotenv-plugin # Load .env as environment variables
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: us-east-1
+
+  environment:
+   MONGO_URI: ${env:MONGO_URI}
+
+functions:
+  createDoctor:
+    handler: functions/createDoctor.handler
+    events:
+      - http:
+          path: doctor
+          method: post
+          cors: true
+  getDoctorList:
+    handler: functions/getDoctorList.handler
+    events:
+      - http:
+          path: doctor
+          method: get
+          cors: true
+  getDoctor:
+    handler: functions/getDoctor.handler
+    events:
+      - http:
+          path: doctor/{id}
+          method: get
+          cors: true
+  editDoctor:
+    handler: functions/editDoctor.handler
+    events:
+      - http:
+          path: doctor/{id}
+          method: put
+          cors: true
+  deleteDoctor:
+    handler: functions/deleteDoctor.handler
+    events:
+      - http:
+          path: doctor/{id}
+          method: delete
+          cors: true
